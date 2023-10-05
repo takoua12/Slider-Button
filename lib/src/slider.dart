@@ -125,7 +125,7 @@ class _SliderButtonState extends State<SliderButton> {
                             width: widget.buttonSize ?? widget.height,
                             decoration: BoxDecoration(
                                 boxShadow: widget.boxShadow != null
-                                    ? [widget.boxShadow]
+                                    ? [widget.boxShadow!]
                                     : null,
                                 color: Colors.grey,
                                 borderRadius: BorderRadius.circular(widget.radius )),
@@ -171,7 +171,7 @@ class _SliderButtonState extends State<SliderButton> {
                             width: widget.buttonSize ?? widget.height,
                             decoration: BoxDecoration(
                                 boxShadow: widget.boxShadow != null
-                                    ? [widget.boxShadow]
+                                    ? [widget.boxShadow!]
                                     : null,
                                 color: widget.buttonColor,
                                 borderRadius: BorderRadius.circular(widget.radius  )),
