@@ -15,9 +15,6 @@ class SliderButton extends StatefulWidget {
   final double width;
   final double? buttonSize;
 
-  /// Use this parameter in case if your slider button is wide and not squared.
-  final double? buttonWidth;
-
   ///Use it to define a color of widget.
   final Color backgroundColor;
   final Color baseColor;
@@ -25,7 +22,7 @@ class SliderButton extends StatefulWidget {
   final Color buttonColor;
 
   ///Change it to gave a label on a widget of your choice.
-  final Widget? label;
+  final Text? label;
 
   ///Gives a alignment to a slider icon.
   final Alignment alignLabel;
@@ -57,7 +54,6 @@ class SliderButton extends StatefulWidget {
     this.shimmer = true,
     this.height = 70,
     this.buttonSize,
-    this.buttonWidth,
     this.width = 250,
     this.alignLabel = const Alignment(0.6, 0),
     this.backgroundColor = const Color(0xffe0e0e0),
@@ -103,7 +99,6 @@ class _SliderButtonState extends State<SliderButton> {
           alignment: Alignment.centerLeft,
           children: <Widget>[
             Container(
-
               alignment: widget.alignLabel,
               child: widget.shimmer && !widget.disable
                   ? Shimmer.fromColors(
@@ -130,9 +125,7 @@ class _SliderButtonState extends State<SliderButton> {
                             width: widget.buttonSize ?? widget.height,
                             decoration: BoxDecoration(
                                 boxShadow: widget.boxShadow != null
-                                    ? [
-                                        widget.boxShadow!,
-                                      ]
+                                    ? widget.boxShadow
                                     : null,
                                 color: Colors.grey,
                                 borderRadius: BorderRadius.circular(widget.radius )),
@@ -166,7 +159,7 @@ class _SliderButtonState extends State<SliderButton> {
                       }
                     },
                     child: Container(
-                      width: widget.width - (widget.buttonWidth ?? widget.height),
+                      width: widget.width - widget.height,
                       height: widget.height,
                       alignment: Alignment.centerLeft,
                       padding: EdgeInsets.only(
@@ -178,9 +171,7 @@ class _SliderButtonState extends State<SliderButton> {
                             width: widget.buttonSize ?? widget.height,
                             decoration: BoxDecoration(
                                 boxShadow: widget.boxShadow != null
-                                    ? [
-                                        widget.boxShadow!,
-                                      ]
+                                    ? widget.boxShadow
                                     : null,
                                 color: widget.buttonColor,
                                 borderRadius: BorderRadius.circular(widget.radius  )),
@@ -193,3 +184,4 @@ class _SliderButtonState extends State<SliderButton> {
         ),
       );
 }
+
