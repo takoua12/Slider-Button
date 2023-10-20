@@ -137,7 +137,7 @@ class _SliderButtonState extends State<SliderButton> {
                   )
                 : Dismissible(
                     key: UniqueKey(),
-                    direction: rtl?DismissDirection.endToStart:DismissDirection.startToEnd,
+                    direction: widget.rtl?DismissDirection.endToStart:DismissDirection.startToEnd,
                     dismissThresholds: {DismissDirection.startToEnd: widget.dismissThresholds},
 
                     ///gives direction of swiping in argument.
