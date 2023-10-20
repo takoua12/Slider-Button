@@ -23,6 +23,7 @@ class SliderButton extends StatefulWidget {
 
   ///Change it to gave a label on a widget of your choice.
   final Text? label;
+  final bool rtl;
 
   ///Gives a alignment to a slider icon.
   final Alignment alignLabel;
@@ -65,6 +66,7 @@ class SliderButton extends StatefulWidget {
     this.dismissible = true,
     this.dismissThresholds = 0.75,
     this.disable = false,
+    this.rtl = false,
   }) : assert((buttonSize ?? 60) <= (height));
 
   @override
@@ -135,7 +137,7 @@ class _SliderButtonState extends State<SliderButton> {
                   )
                 : Dismissible(
                     key: UniqueKey(),
-                    direction: DismissDirection.startToEnd,
+                    direction: rtl?DismissDirection.endToStart:DismissDirection.startToEnd,
                     dismissThresholds: {DismissDirection.startToEnd: widget.dismissThresholds},
 
                     ///gives direction of swiping in argument.
@@ -184,4 +186,3 @@ class _SliderButtonState extends State<SliderButton> {
         ),
       );
 }
-
